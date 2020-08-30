@@ -57,15 +57,12 @@ export default class Stopwatch extends Component {
         <div className="stopwatch-display">
           <span id={isError ? "color-red": "color-default"}>{minutes} : {seconds}</span>
         </div>
-        {!timerOn && timerTime === 0 && (
-          <button onClick={isError ? this.defaultTimer: this.startTimer}>{isError ? "Reset" : "Start"}</button>
-        )}
-        {timerOn && (
+        {timerOn ? 
           <button onClick={this.stopTimer}>Pause</button>
-        )}
-        {!timerOn && timerTime > 0 && (
-          <button onClick={this.startTimer}>Start</button>
-        )}
+          :
+          timerTime >= 0 &&
+            <button onClick={isError ? this.defaultTimer: this.startTimer}>{isError ? "Reset" : "Start"}</button>
+        }
       </div>
     );
   }
