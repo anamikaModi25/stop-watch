@@ -38,6 +38,7 @@ export default class Stopwatch extends Component {
   defaultTimer = () => {
     this.setState({isError: false})
   }
+  
   componentDidUpdate(){
     let { timerTime } = this.state;
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
