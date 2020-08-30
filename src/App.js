@@ -1,10 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Stopwatch from './Component/Stopwatch';
 import PrivadoHeader from './Component/privadoHeader';
 
-function App() {
+export default function App() {
   return (
     <div className="row">
         <div className="col-md-12" id="stop-watch-container">
@@ -14,5 +13,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
