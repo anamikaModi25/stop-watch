@@ -39,8 +39,9 @@ export default class Stopwatch extends Component {
     let { timerTime } = this.state;
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     if(minutes === "05"){
-      this.setState({isError: true, timerStart: 0, timerTime: 0})
+      this.setState({isError: true})
       this.stopTimer();
+      this.resetTimer();
     }
   }
 
