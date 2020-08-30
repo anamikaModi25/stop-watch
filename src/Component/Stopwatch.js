@@ -61,7 +61,7 @@ export default class Stopwatch extends Component {
           <button onClick={this.stopTimer}>Pause</button>
         )}
         {!timerOn && timerTime > 0 && (
-          <button onClick={this.startTimer}>Reset</button>
+          <button onClick={this.startTimer}>Start</button>
         )}
       </div>
     );
