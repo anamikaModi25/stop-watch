@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../App.css";
 
-class Stopwatch extends Component {
+export default class Stopwatch extends Component {
   state = {
     timerOn: false,
     timerStart: 0,
@@ -45,7 +45,7 @@ class Stopwatch extends Component {
   }
 
   render() {
-    const { timerTime, isError } = this.state;
+    const { timerTime, isError, timerOn, timerTime } = this.state;
     let seconds = ("0" + (Math.floor(timerTime / 1000) % 60)).slice(-2);
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
     return (
@@ -53,18 +53,16 @@ class Stopwatch extends Component {
         <div className="stopwatch-display">
           <span id={isError ? "color-red": "color-default"}>{minutes} : {seconds}</span>
         </div>
-        {this.state.timerOn === false && this.state.timerTime === 0 && (
+        {!timerOn && timerTime === 0 && (
           <button onClick={this.startTimer}>{isError ? "Reset" : "Start"}</button>
         )}
-        {this.state.timerOn === true && (
+        {timerOn && (
           <button onClick={this.stopTimer}>Stop</button>
         )}
-        {this.state.timerOn === false && this.state.timerTime > 0 && (
+        {!timerOn && timerTime > 0 && (
           <button onClick={this.resetTimer}>Reset</button>
         )}
       </div>
     );
   }
 }
-
-export default Stopwatch;
