@@ -1,8 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# :watch: Stopwatch
 
-## Available Scripts
+Stopwatch React Components built using Javascript intervals.
 
-In the project directory, you can run:
+Watch can start, stop, and reset.
 
 ### `npm start`
 
