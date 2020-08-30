@@ -35,6 +35,9 @@ export default class Stopwatch extends Component {
     });
   };
 
+  defaultTimer = () => {
+    this.setState({isError: false})
+  }
   componentDidUpdate(){
     let { timerTime } = this.state;
     let minutes = ("0" + (Math.floor(timerTime / 60000) % 60)).slice(-2);
@@ -55,7 +58,7 @@ export default class Stopwatch extends Component {
           <span id={isError ? "color-red": "color-default"}>{minutes} : {seconds}</span>
         </div>
         {!timerOn && timerTime === 0 && (
-          <button onClick={this.startTimer}>{isError ? "Reset" : "Start"}</button>
+          <button onClick={isError ? this.defaultTimer: this.startTimer}>{isError ? "Reset" : "Start"}</button>
         )}
         {timerOn && (
           <button onClick={this.stopTimer}>Pause</button>
